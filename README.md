@@ -46,10 +46,10 @@ Buenas prácticas para que los tests pasen en un entorno limpio de CI:
 
 ## 4. Flujo básico con GitHub Actions
 
-Archivo de configuración: `.github/workflows/maven.yml`
+Archivo de configuración: `.github/workflows/ci-mvn.yml`
 
 ```yaml
-name: CI
+name: CI con Maven
 
 on:
   push:
