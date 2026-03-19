@@ -10,8 +10,9 @@ COPY src ./src
 RUN mvn clean package
 
 # ====== Etapa 2: Fase de ejecución (con la que generará la imagen) ======
-# Sólo necesitamos el JDK para ejecutar la aplicación, no el entorno de construcción completo
-FROM eclipse-temurin:23-jdk as imagen_ejecucion
+# En teoría sólo necesitamos la JRE para ejecutar la aplicación (ojo, a veces puede dar problemas y se usa la JDK )
+# No se necesita el entorno de construcción completo (Maven + JDK + src), sólo el resultado de la construcción (el .jar) y un entorno de ejecución (JRE)
+FROM eclipse-temurin:23-jre as imagen_ejecucion
 
 WORKDIR /app
 
